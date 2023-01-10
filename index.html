@@ -1,278 +1,91 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <base target="_top">
-    <title>ポケモンカード インジケータ</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
-    <br>
-    <div class="turn">
-        <label><a id="player">先攻</a>プレイヤー /</label>
-        <label><a id="turn">1</a>ターン目</label>
+<!DOCTYPE html><!--  This site was created in Webflow. https://www.webflow.com  -->
+<!--  Last Published: Tue Jan 10 2023 08:01:13 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="63bcff75701f97929f9c703e" data-wf-site="63bcff75701f9721b89c703d">
+<head>
+  <meta charset="utf-8">
+  <title>JUDGE INDICATOR</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/judge-indicator.webflow.css" rel="stylesheet" type="text/css">
+  <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+</head>
+<body>
+  <div class="sac-page wf-section">
+    <div class="main-wrapper">
+      <div class="first-box">
+        <h1 class="h1-txt">JUDGE INDICATOR</h1>
+      </div>
+      <div class="second-box">
+        <div class="turn-box">
+          <h2 class="h2-turn"><span id="player">先攻</span> <span id="turn" class="turn-number">1</span>ターン</h2>
+        </div>
+        <table cellspacing="10">
+          <tr>
+            <td id="check_energy" class="once-check" onclick="getElementById('energy').click();">
+              <input type="checkbox" id="energy" class="label-check" onclick="this.click();chenge_color(`energy`);">エネルギー</td>
+            <td id="check_support" class="once-check" onclick="getElementById('support').click();">
+              <input type="checkbox" id="support" class="label-check" onclick="this.click();chenge_color(`support`);">サポート</td>
+          </tr>
+          <tr>
+            <td id="check_escape" class="once-check" onclick="getElementById('escape').click();">
+              <input type="checkbox" id="escape" class="label-check" onclick="this.click();chenge_color(`escape`);">にげる</td>
+            <td id="check_stadium" class="once-check" onclick="getElementById('stadium').click();">
+              <input type="checkbox" id="stadium" class="label-check" onclick="this.click();chenge_color(`stadium`);">スタジアム</td>
+          </tr>
+        </table>
+        <div class="avility-wrapper">
+          <div class="ability-box">
+            <div class="av-txt">特性 A : </div>
+            <a class="updown-btn w-button" onclick="addCount(1, `-`)">-</a>
+            <div id="counter-1" class="av-count-txt">0</div>
+            <a class="updown-btn w-button" onclick="addCount(1, `+`)">+</a>
+          </div>
+          <div class="ability-box">
+            <div class="av-txt">特性 B : </div>
+            <a class="updown-btn w-button" onclick="addCount(2, `-`)">-</a>
+            <div id="counter-2" class="av-count-txt">0</div>
+            <a class="updown-btn w-button" onclick="addCount(2, `+`)">+</a>
+          </div>
+          <div class="ability-box">
+            <div class="av-txt">特性 C : </div>
+            <a class="updown-btn w-button" onclick="addCount(3, `-`)">-</a>
+            <div id="counter-3" class="av-count-txt">0</div>
+            <a class="updown-btn w-button" onclick="addCount(3, `+`)">+</a>
+          </div>
+          <div class="ability-box">
+            <div class="av-txt">特性 D : </div>
+            <a class="updown-btn w-button" onclick="addCount(4, `-`)">-</a>
+            <p id="counter-4" class="av-count-txt">0</p>
+            <a class="updown-btn w-button" onclick="addCount(4, `+`)">+</a>
+          </div>
+        </div>
+        <div class="side-wrapper">
+          <div class="side-box">
+            <div class="side-txt">サイド取得 : </div>
+            <a class="side-btn w-button" onclick="addCount(5, `-`)">-</a>
+            <div id="counter-5" class="side-count-txt">0</div>
+            <a class="side-btn w-button" onclick="addCount(5, `+`)">+</a>
+          </div>
+        </div>
+      </div>
+      <div class="third-box">
+        <a data-w-id="26c1a79b-6552-1be1-7e86-61b77efdf6c2" class="goback-btn w-button" onclick="paging(`previous`)">前の番</a>
+        <a data-w-id="26c1a79b-6552-1be1-7e86-61b77efdf6c2" class="go-btn w-button" onclick="paging(`next`)">次の番</a>
+      </div>
     </div>
-    <div class="paging">
-      <input type="button" class="paging_btn" value="前の番" onclick="paging(`previous`)">
-      <input type="button" class="paging_btn" value="次の番" onclick="paging(`next`)">
+    <div class="fourth-box">
+      <input type="reset" class="reset_btn" value="入力リセット" onclick="check_reset()">
+      <input type="button" class="claer_btn" value="記録をリセット" onclick="memory_clear()">
     </div>
-    <table cellspacing="5">
-      <tr>
-        <th>番に1回だけ</th>
-        <th colspan="3">特性カウンタ</th>
-      </tr>
-      <tr>
-        <td class="once" onclick="getElementById('energy').click();">
-          <input type="checkbox" id="energy" class="checks" onclick="this.click()">エネルギー</td>
-        <td class="ability">特性1</td>
-        <td class="ability"><p id="counter-1">0</p></td>
-        <td class="ability"><input type="button" class="count_btn" value="+" onclick="addCount(1)"><br>
-                            <input type="button" class="count_btn" value="-" onclick="addCount(-1)"></td>
-      </tr>
-      
-      <tr>
-        <td class="once" onclick="getElementById('support').click();">
-          <input type="checkbox" id="support" class="checks" onclick="this.click()">サポート</td>
-        <td class="ability">特性2</td>
-        <td class="ability"><p id="counter-2">0</p></td>
-        <td class="ability"><input type="button" class="count_btn" value="+" onclick="addCount(2)"><br>
-                            <input type="button" class="count_btn" value="-" onclick="addCount(-2)"></td>
-      </tr>
-
-      <tr>
-        <td class="once" onclick="getElementById('escape').click();">
-          <input type="checkbox" id="escape" class="checks" onclick="this.click()">にげる</td>
-        <td class="ability">特性3</td>
-        <td class="ability"><p id="counter-3">0</p></td>
-        <td class="ability"><input type="button" class="count_btn" value="+" onclick="addCount(3)"><br>
-                            <input type="button" class="count_btn" value="-" onclick="addCount(-3)"></td>
-      </tr>
-      
-      <tr>
-        <td class="once" onclick="getElementById('stadium').click();">
-          <input type="checkbox" id="stadium" class="checks" onclick="this.click()">スタジアム</td>
-        <td class="ability">特性4</td>
-        <td class="ability"><p id="counter-4">0</p></td>
-        <td class="ability"><input type="button" class="count_btn" value="+" onclick="addCount(4)"><br>
-                            <input type="button" class="count_btn" value="-" onclick="addCount(-4)"></td>
-      </tr>
-
-      <tr><td colspan="4" class="reset_btn"><input type="reset" class="reset_btn" value="入力リセット" onclick="check_reset()"></td></tr>
-    </table>
-    <div class="claer_line">
-        <input type="button" class="claer_btn" value="記録をリセット" onclick="memory_clear()">
-    </div>
-  </body>
+  </div>
+  <script src="js/function.js" type="text/javascript"></script>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=63bcff75701f9721b89c703d" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+</body>
 </html>
-
-<style>
-  body {
-    background-color: skyblue;
-  }
-  .title {
-    padding: 10px;
-    font-size: min(50vw,30px);
-    text-align: center;
-  }
-
-  table {
-    font-size: min(50vw,25px);
-    margin-left: auto;
-    margin-right: auto;
-    border-top: 2px solid black;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: 2px solid black;
-  }
-  .checks {
-    width: min(50vw,25px);
-    height: min(20vw,20px);
-  }
-  .once {
-    border-top: 2px solid black;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-    border-bottom: 2px solid black;
-  }
-  .ability {
-    text-align: center;
-  }
-  .turn {
-    padding: 3px;
-    text-align: center;
-    font-size: min(50vw,25px);
-  }
-  .paging {
-    padding: 3px;
-    text-align: center;
-  }
-  .paging_btn {
-    width: min(50vw,120px);
-    height: min(20vw,25px);
-  }
-  .count_btn {
-    text-align: center;
-    width: min(20vw,42px);
-    height: min(50vw,20px);
-  } 
-  .reset_btn {
-    text-align: center;
-    width: min(50vw,120px);
-    height: min(20vw,25px);
-  } 
-  .claer_line {
-    padding: 5px;
-    text-align: center;
-  }
-  .claer_btn {
-    width: min(50vw,120px);
-    height: min(20vw,25px);
-  }
-  
-</style>
-
-<script type="text/javascript">
-    let counter_1, counter_2, counter_3, counter_4;
-    let n_1, n_2, n_3, n_4;
-    let checks;
-    let a_memorys, b_memorys;
-    let player_turn, player_name;
-    let player, turn;
-    const f_memory = [false, false, false, false, 0, 0, 0, 0];
-
-    function paging(value) {
-        // 格納
-        var memory = [];
-        for (let i = 0; i < checks.length; i++) {
-            memory.push(checks[i].checked);
-        }
-        memory.push(n_1);
-        memory.push(n_2);
-        memory.push(n_3);
-        memory.push(n_4);
-        
-        if (player_name == "先攻") {
-            a_memorys[player_turn] = memory;
-        } else if (player_name == "後攻") {
-            b_memorys[player_turn] = memory;
-        }
-
-        // ターンの切り替え
-        if (player_name == "先攻") {
-            if (value == "previous" & player_turn > 1) {
-                player_name = "後攻";
-                player_turn -= 1;
-                turn.innerHTML = player_turn;
-            } else if (value == "next") {
-                player_name = "後攻";
-            }
-            player.innerHTML = player_name;
-        } else if (player_name == "後攻") {
-            player_name = "先攻"
-            player.innerHTML = player_name;
-            if (value == "next") {
-                player_turn += 1;
-                turn.innerHTML = player_turn;
-            }
-        }
-
-        //カウンタの切り替え
-        if (player_name == "先攻") {
-            var n_memory = a_memorys[player_turn]
-        } else if (player_name == "後攻") {
-            var n_memory = b_memorys[player_turn]
-        }
-        checks[0].checked = n_memory[0];
-        checks[1].checked = n_memory[1];
-        checks[2].checked = n_memory[2];
-        checks[3].checked = n_memory[3];
-        n_1 = n_memory[4];
-        n_2 = n_memory[5];
-        n_3 = n_memory[6];
-        n_4 = n_memory[7];
-        counter_1.innerHTML = n_1;
-        counter_2.innerHTML = n_2;
-        counter_3.innerHTML = n_3;
-        counter_4.innerHTML = n_4;
-        
-    }
-
-    function addCount(num){
-        if (num == 1) {
-            n_1++;
-        }
-        else if (num == 2) {
-            n_2++;
-        }
-        else if (num == 3) {
-            n_3++;
-        }
-        else if (num == 4) {
-            n_4++;
-        }
-        else if (num == -1 & n_1 > 0) {
-            n_1--;
-        }
-        else if (num == -2 & n_2 > 0) {
-            n_2--;
-        }
-        else if (num == -3 & n_3 > 0) {
-            n_3--;
-        }
-        else if (num == -4 & n_4 > 0) {
-            n_4--;
-        }
-        else if (num == 0) {
-            n_1 = 0;
-            n_2 = 0;
-            n_3 = 0;
-            n_4 = 0;
-        }
-        counter_1.innerHTML = n_1;
-        counter_2.innerHTML = n_2;
-        counter_3.innerHTML = n_3;
-        counter_4.innerHTML = n_4;
-    }
-
-    function memory_clear() {
-        player_name = "先攻";
-        player.innerHTML = player_name;
-        player_turn = 1;
-        turn.innerHTML = player_turn;
-        a_memorys = {1: f_memory, 2: f_memory, 3: f_memory, 4: f_memory, 5: f_memory, 
-                     6: f_memory, 7: f_memory, 8: f_memory, 9: f_memory, 10: f_memory};
-        b_memorys = {1: f_memory, 2: f_memory, 3: f_memory, 4: f_memory, 5: f_memory, 
-                     6: f_memory, 7: f_memory, 8: f_memory, 9: f_memory, 10: f_memory};
-        check_reset();
-    }
-
-    function check_reset() {
-      for (let i = 0; i < checks.length; i++) {
-        checks[i].checked = false;
-      }
-      addCount(0);
-    }
-
-    window.addEventListener("load", ()=>{
-        // 起動時の処理
-        counter_1 = document.getElementById("counter-1");
-        counter_2 = document.getElementById("counter-2");
-        counter_3 = document.getElementById("counter-3");
-        counter_4 = document.getElementById("counter-4");
-        checks = document.getElementsByClassName("checks");
-        player = document.getElementById("player");
-        turn = document.getElementById("turn");
-        test1 = document.getElementById("test1");
-        test2 = document.getElementById("test2");
-        n_1 = 0;
-        n_2 = 0;
-        n_3 = 0;
-        n_4 = 0;
-        player_name = "先攻";
-        player_turn = 1;
-        a_memorys = {1: f_memory, 2: f_memory, 3: f_memory, 4: f_memory, 5: f_memory, 
-                     6: f_memory, 7: f_memory, 8: f_memory, 9: f_memory, 10: f_memory};
-        b_memorys = {1: f_memory, 2: f_memory, 3: f_memory, 4: f_memory, 5: f_memory, 
-                     6: f_memory, 7: f_memory, 8: f_memory, 9: f_memory, 10: f_memory};
-    });
-</script>
-

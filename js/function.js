@@ -5,7 +5,7 @@ let check_table, checks;
 let check_1, check_2, check_3, check_4;
 let a_memorys, b_memorys;
 let player_turn, player_name;
-let player, turn;
+let player, turn, turn_line;
 const f_memory = [false, false, false, false, 0, 0, 0, 0, 0];
 
 function chenge_color(target) {
@@ -35,6 +35,12 @@ function chenge_color(target) {
             check_4.style.background = "#7c7c7c";
         } else {
             check_4.style.background = "#0a8b2a";
+        }
+    } else if (target == "turn") {
+        if (player_name == "先攻") {
+            turn_line.style.background = "#d11e1e";
+        } else if (player_name == "後攻") {
+            turn_line.style.background = "#3657be";
         }
     }
 }
@@ -86,10 +92,11 @@ function paging(value) {
     checks[1].checked = n_memory[1];
     checks[2].checked = n_memory[2];
     checks[3].checked = n_memory[3];
-    chenge_color("energy")
-    chenge_color("support")
-    chenge_color("escape")
-    chenge_color("stadium")
+    chenge_color("energy");
+    chenge_color("support");
+    chenge_color("escape");
+    chenge_color("stadium");
+    chenge_color("turn");
     n_1 = n_memory[4];
     n_2 = n_memory[5];
     n_3 = n_memory[6];
@@ -168,9 +175,10 @@ function memory_clear() {
 
 function check_reset() {
     for (let i = 0; i < checks.length; i++) {
-    checks[i].checked = false;
+        checks[i].checked = false;
     }
     addCount(0);
+    paging();
 }
 
 window.addEventListener("load", ()=>{
@@ -186,6 +194,7 @@ window.addEventListener("load", ()=>{
     check_4 = document.getElementById("check_stadium");
     checks = document.getElementsByClassName("label-check");
     player = document.getElementById("player");
+    turn_line = document.getElementById("turn-line");
     turn = document.getElementById("turn");
     test1 = document.getElementById("test1");
     test2 = document.getElementById("test2");

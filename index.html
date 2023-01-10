@@ -22,7 +22,7 @@
       </div>
       <div class="second-box">
         <div class="turn-box">
-          <h2 class="h2-turn"><span id="player">先攻</span> <span id="turn" class="turn-number">1</span>ターン</h2>
+          <h2 id="turn-line" class="h2-turn"><span id="player">先攻</span> <span id="turn" class="turn-number">1</span>ターン</h2>
         </div>
         <table cellspacing="10">
           <tr>
@@ -77,11 +77,11 @@
         </div>
       </div>
       <div class="third-box">
-        <a data-w-id="26c1a79b-6552-1be1-7e86-61b77efdf6c2" class="goback-btn w-button" onclick="paging(`previous`)">前の番</a>
-        <a data-w-id="26c1a79b-6552-1be1-7e86-61b77efdf6c2" class="go-btn w-button" onclick="paging(`next`)">次の番</a>
+        <a class="goback-btn w-button" onclick="paging(`previous`)">前の番</a>
+        <a class="go-btn w-button" onclick="paging(`next`)">次の番</a>
       </div>
     </div>
-    <div class="fourth-box">
+    <div class="claer-wrapper">
       <input type="button" class="claer_btn" value="記録をリセット" onclick="memory_clear()">
     </div>
   </div>

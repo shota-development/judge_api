@@ -8,7 +8,7 @@ let player_turn, player_name;
 let player, turn, turn_line;
 const f_memory = [false, false, false, false, 0, 0, 0, 0, 0];
 
-function chenge_color(target) {
+function chenge_color(target, player_name) {
     if (target == "energy") {
         if (checks[0].checked) {
             check_1.style.background = "#7c7c7c";
@@ -36,13 +36,22 @@ function chenge_color(target) {
         } else {
             check_4.style.background = "#0a8b2a";
         }
-    } else if (target == "turn") {
+    } 
+    else if (target == "turn") {
         if (player_name == "先攻") {
             turn_line.style.background = "#d11e1e";
         } else if (player_name == "後攻") {
             turn_line.style.background = "#3657be";
         }
     }
+}
+
+function reset_color(player_name) {
+    chenge_color("energy");
+    chenge_color("support");
+    chenge_color("escape");
+    chenge_color("stadium");
+    chenge_color("turn", player_name);
 }
 
 function paging(value) {
@@ -92,11 +101,7 @@ function paging(value) {
     checks[1].checked = n_memory[1];
     checks[2].checked = n_memory[2];
     checks[3].checked = n_memory[3];
-    chenge_color("energy");
-    chenge_color("support");
-    chenge_color("escape");
-    chenge_color("stadium");
-    chenge_color("turn");
+    reset_color(player_name);
     n_1 = n_memory[4];
     n_2 = n_memory[5];
     n_3 = n_memory[6];
@@ -178,7 +183,6 @@ function check_reset() {
         checks[i].checked = false;
     }
     addCount(0);
-    paging();
 }
 
 window.addEventListener("load", ()=>{

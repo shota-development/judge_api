@@ -183,6 +183,7 @@ function check_reset() {
         checks[i].checked = false;
     }
     addCount(0);
+    reset_color(player_name);
 }
 
 window.addEventListener("load", ()=>{

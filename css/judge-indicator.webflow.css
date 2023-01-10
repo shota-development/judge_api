@@ -56,6 +56,12 @@ input[type="checkbox"]:checked {
   background-color: #ddd;
 }
 
+.reset_btn {
+  text-align: center;
+  width: min(50vw,120px);
+  height: min(20vw,25px);
+} 
+
 @media screen and (max-width: 991px) {
   .main-wrapper {
     background-color: #123358;

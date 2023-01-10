@@ -150,6 +150,8 @@ function addCount(num, sign){
         n_5 += value;
         if (n_5 < 0) {
             n_5 = 0;
+        } else if (n_5 > 6) {
+            n_5 = 6;
         }
     }
     else if (num == 0) {

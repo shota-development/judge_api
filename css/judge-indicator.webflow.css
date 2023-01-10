@@ -56,10 +56,9 @@ input[type="checkbox"]:checked {
   background-color: #ddd;
 }
 
-.reset_btn {
+.claer-wrapper {
+  padding: 0px;
   text-align: center;
-  width: min(50vw,120px);
-  height: min(20vw,25px);
 } 
 
 @media screen and (max-width: 991px) {
@@ -184,7 +183,7 @@ input[type="checkbox"]:checked {
   }
 
   .avility-wrapper {
-    margin-top: 20px;
+    margin-top: 15px;
   }
 
   .side-box {
@@ -192,7 +191,7 @@ input[type="checkbox"]:checked {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    margin-top: 24px;
+    margin-top: 15px;
     margin-bottom: 18px;
     padding: 12px 10px;
     -webkit-box-pack: center;
@@ -224,7 +223,7 @@ input[type="checkbox"]:checked {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    margin-top: 10px;
+    margin-top: 5px;
     padding: 10px;
     -webkit-box-pack: center;
     -webkit-justify-content: center;

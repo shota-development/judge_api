@@ -153,22 +153,32 @@ function addCount(num, sign){
         }
     }
     else if (num == 5) {
-        n_5 += value;
-        if (n_5 < 0) {
-            n_5 = 0;
-        } else if (n_5 > 6) {
-            n_5 = 6;
-        }
-        counter_side_1.innerHTML = parseInt(counter_side_1.textContent) - value;
+        side_num = parseInt(counter_side_1.textContent) - value;
+        if (side_num < 0) {
+            alert("先攻プレイヤーのサイドは0枚です。")
+        } else if (side_num < 7) {
+            n_5 += value;
+            if (n_5 < 0) {
+                n_5 = 0;
+            } else if (n_5 > 6) {
+                n_5 = 6;
+            }
+            counter_side_1.innerHTML = side_num;
+        }        
     }
     else if (num == 6) {
-        n_6 += value;
-        if (n_6 < 0) {
-            n_6 = 0;
-        } else if (n_6 > 6) {
-            n_6 = 6;
-        }
-        counter_side_2.innerHTML = parseInt(counter_side_2.textContent) - value;
+        side_num = parseInt(counter_side_2.textContent) - value;
+        if (side_num < 0) {
+            alert("後攻プレイヤーのサイドは0枚です。")
+        } else if (side_num < 7) {
+            n_6 += value;
+            if (n_6 < 0) {
+                n_6 = 0;
+            } else if (n_6 > 6) {
+                n_6 = 6;
+            }
+            counter_side_2.innerHTML = side_num;
+        }        
     }
     else if (num == 0) {
         n_1 = 0;

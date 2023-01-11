@@ -311,7 +311,7 @@ input[type="checkbox"]:checked {
 @media screen and (max-width: 479px) {
   /* 帯単位 */
   .sac-page {
-    height: 100vh;
+    height: 100%;
   }
   
   .third-box {

@@ -453,7 +453,6 @@ input[type="checkbox"]:checked {
     border-width: 1px;
     border-color: #123358;
     border-radius: 8px;
-    background-color: #123358;
     outline-color: #333;
     outline-offset: 0px;
     outline-style: none;

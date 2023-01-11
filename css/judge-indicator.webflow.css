@@ -310,6 +310,10 @@ input[type="checkbox"]:checked {
 
 @media screen and (max-width: 479px) {
   /* 帯単位 */
+  .sac-page {
+    height: 100vh;
+  }
+  
   .third-box {
     display: -webkit-box;
     display: -webkit-flex;

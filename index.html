@@ -21,8 +21,18 @@
         <h1 class="h1-txt">JUDGE INDICATOR</h1>
       </div>
       <div class="second-box">
+        <div class="side-count-wrapper">
+          <div class="side-count-box">
+            <div class="side-count-label">先攻残りサイド</div>
+            <div id="counter-side-1" class="side-count-number">6</div>
+          </div>
+          <div class="side-count-box">
+            <div id="counter-side-2" class="side-count-number second">6</div>
+            <div class="side-count-label second">後攻残りサイド</div>
+          </div>
+        </div>
         <div class="turn-box">
-          <h2 id="turn-line" class="h2-turn"><span id="player">先攻</span> <span id="turn" class="turn-number">1</span>ターン</h2>
+          <h2 id="turn-line" class="h2-turn"><span id="player" class="player-sig">先攻</span> <span id="turn" class="turn-number">1</span>ターン</h2>
         </div>
         <table cellspacing="10">
           <tr>
@@ -65,11 +75,15 @@
           </div>
         </div>
         <div class="side-wrapper">
+          <div class="side-box"><div class="side-txt">サイド取得</div></div>
           <div class="side-box">
-            <div class="side-txt">サイド取得 : </div>
             <a class="side-btn w-button" onclick="addCount(5, `-`)">-</a>
-            <div id="counter-5" class="side-count-txt">0</div>
+            <div id="counter-side-3" class="side-count-txt">0</div>
             <a class="side-btn w-button" onclick="addCount(5, `+`)">+</a>
+            <span class="space"></span>
+            <a class="side-btn w-button" onclick="addCount(6, `-`)">-</a>
+            <div id="counter-side-4" class="side-count-txt second">0</div>
+            <a class="side-btn w-button" onclick="addCount(6, `+`)">+</a>
           </div>
         </div>
       </div>

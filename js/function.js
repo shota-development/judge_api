@@ -1,12 +1,13 @@
 //let counter_1, counter_2, counter_3, counter_4;
 let counter_1, counter_2, counter_3, counter_4;
-let n_1, n_2, n_3, n_4, n_5;
+let counter_side_1, counter_side_2, counter_side_3, counter_side_4;
+let n_1, n_2, n_3, n_4, n_5, n_6;
 let check_table, checks;
 let check_1, check_2, check_3, check_4;
 let a_memorys, b_memorys;
 let player_turn, player_name;
-let player, turn, turn_line;
-const f_memory = [false, false, false, false, 0, 0, 0, 0, 0];
+let player, turn, turn_line, player_sig;
+const f_memory = [false, false, false, false, 0, 0, 0, 0, 0, 0];
 
 function chenge_color(target, player_name) {
     if (target == "energy") {
@@ -40,8 +41,10 @@ function chenge_color(target, player_name) {
     else if (target == "turn") {
         if (player_name == "先攻") {
             turn_line.style.background = "#d11e1e";
+            player.style.color = "#d11e1e";
         } else if (player_name == "後攻") {
             turn_line.style.background = "#3657be";
+            player.style.color = "#3657be";
         }
     }
 }
@@ -65,6 +68,7 @@ function paging(value) {
     memory.push(n_3);
     memory.push(n_4);
     memory.push(n_5);
+    memory.push(n_6);
 
     if (player_name == "先攻") {
         a_memorys[player_turn] = memory;
@@ -107,11 +111,13 @@ function paging(value) {
     n_3 = n_memory[6];
     n_4 = n_memory[7];
     n_5 = n_memory[8];
+    n_6 = n_memory[9];
     counter_1.innerHTML = n_1;
     counter_2.innerHTML = n_2;
     counter_3.innerHTML = n_3;
     counter_4.innerHTML = n_4;
-    counter_5.innerHTML = n_5;
+    counter_side_3.innerHTML = n_5;
+    counter_side_4.innerHTML = n_6;
 }
 
 function addCount(num, sign){
@@ -153,6 +159,16 @@ function addCount(num, sign){
         } else if (n_5 > 6) {
             n_5 = 6;
         }
+        counter_side_1.innerHTML = parseInt(counter_side_1.textContent) - value;
+    }
+    else if (num == 6) {
+        n_6 += value;
+        if (n_6 < 0) {
+            n_6 = 0;
+        } else if (n_6 > 6) {
+            n_6 = 6;
+        }
+        counter_side_2.innerHTML = parseInt(counter_side_2.textContent) - value;
     }
     else if (num == 0) {
         n_1 = 0;
@@ -160,12 +176,14 @@ function addCount(num, sign){
         n_3 = 0;
         n_4 = 0;
         n_5 = 0;
+        n_6 = 0;
     }
     counter_1.innerHTML = n_1;
     counter_2.innerHTML = n_2;
     counter_3.innerHTML = n_3;
     counter_4.innerHTML = n_4;
-    counter_5.innerHTML = n_5;
+    counter_side_3.innerHTML = n_5;
+    counter_side_4.innerHTML = n_6;
 }
 
 function memory_clear() {
@@ -194,7 +212,10 @@ window.addEventListener("load", ()=>{
     counter_2 = document.getElementById("counter-2");
     counter_3 = document.getElementById("counter-3");
     counter_4 = document.getElementById("counter-4");
-    counter_5 = document.getElementById("counter-5");
+    counter_side_1 = document.getElementById("counter-side-1");
+    counter_side_2 = document.getElementById("counter-side-2");
+    counter_side_3 = document.getElementById("counter-side-3");
+    counter_side_4 = document.getElementById("counter-side-4");
     check_1 = document.getElementById("check_energy");
     check_2 = document.getElementById("check_support");
     check_3 = document.getElementById("check_escape");
@@ -210,6 +231,7 @@ window.addEventListener("load", ()=>{
     n_3 = 0;
     n_4 = 0;
     n_5 = 0;
+    n_6 = 0;
     player_name = "先攻";
     player_turn = 1;
     check_1.style.background = "#0a8b2a";

@@ -240,7 +240,7 @@ function check_memory() {
     input.setAttribute("type", "button");
     input.setAttribute("class", "pop_btn");
     input.setAttribute("onclick", "pop_close()");
-    input.setAttribute("value", "閉じた");
+    input.setAttribute("value", "閉じる");
     td.setAttribute("colspan", 9);
     td.appendChild(input);
     row.appendChild(td);

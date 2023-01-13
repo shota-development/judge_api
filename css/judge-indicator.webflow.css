@@ -579,8 +579,14 @@ a {
     padding-right: 0px;
     padding-left: 0px;
   }
+  .player_table {
+    position: absolute;
+    background: darksalmon;
+    margin-top: 45%;
+    margin-left: 5%;
+  }
   .player_table_td {
-    width: 12%;
+    width: 10%;
     text-align: center;
   }
 

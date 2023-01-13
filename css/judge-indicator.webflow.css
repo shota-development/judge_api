@@ -586,7 +586,8 @@ a {
     margin-left: 5%;
   }
   .player_table_td {
-    width: 10%;
+    width: 8%;
+    font-size: 10px;
     text-align: center;
   }
 

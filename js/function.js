@@ -7,6 +7,8 @@ let check_1, check_2, check_3, check_4;
 let a_memorys, b_memorys;
 let player_turn, player_name;
 let player, turn, turn_line, player_sig;
+let menu, nav, pop_table;
+let header = ["Eg", "St", "Esc", "St"]
 const f_memory = [false, false, false, false, 0, 0, 0, 0, 0, 0];
 
 function chenge_color(target, player_name) {
@@ -192,16 +194,93 @@ function addCount(num, sign){
     counter_side_4.innerHTML = n_6;
 }
 
+function check_memory() {
+    var table = document.getElementById("player_table");
+    turns = Object.keys(a_memorys).length;
+    for (var r=0; r<turns; r++) {
+        var row = table.insertRow(-1);
+        target_key = 1 + r;
+        for (c=0; c<header.length; c++) {
+            var td = document.createElement("td");
+            td.classList.add("player_table_td")
+            row.appendChild(td);
+            if (a_memorys[target_key][c] === undefined) {
+                td.innerHTML = "";
+            } else {
+                if (a_memorys[target_key][c]) {
+                    td.innerHTML = "〇";
+                } else {
+                    td.innerHTML = "-";
+                }
+            }
+        }
+        var td = document.createElement("td");
+        td.classList.add("player_table_td")
+        row.appendChild(td);
+        td.innerHTML = target_key;
+        for (c=0; c<header.length; c++) {
+            var td = document.createElement("td");
+            td.classList.add("player_table_td")
+            row.appendChild(td);
+            if (b_memorys[target_key][c] === undefined) {
+                td.innerHTML = "";
+            } else {
+                if (b_memorys[target_key][c]) {
+                    td.innerHTML = "〇";
+                } else {
+                    td.innerHTML = "-";
+                }
+            }
+        }
+    }
+    var row = table.insertRow(-1);
+    var td = document.createElement("td");
+    td.classList.add("btn_td")
+    var input = document.createElement("input");
+    input.setAttribute("type", "button");
+    input.setAttribute("class", "pop_btn");
+    input.setAttribute("onclick", "pop_close()");
+    input.setAttribute("value", "閉じる");
+    td.setAttribute("colspan", 9);
+    td.appendChild(input);
+    row.appendChild(td);
+    if (pop_table.classList.contains("open-menu")) {
+        pop_table.classList.remove("open-menu")
+    } else {
+        pop_table.classList.add("open-menu")
+    }
+}
+
+function pop_close() {
+    if (pop_table.classList.contains("open-menu")) {
+        pop_table.classList.remove("open-menu")
+    } else {
+        pop_table.classList.add("open-menu")
+    }
+    var table = document.getElementById("player_table");
+    for (r=table.rows.length-1; r>1; r--) {
+        table.deleteRow(r);
+    }
+}
+
 function memory_clear() {
-    player_name = "先攻";
-    player.innerHTML = player_name;
-    player_turn = 1;
-    turn.innerHTML = player_turn;
-    a_memorys = {1: f_memory, 2: f_memory, 3: f_memory, 4: f_memory, 5: f_memory, 
-                    6: f_memory, 7: f_memory, 8: f_memory, 9: f_memory, 10: f_memory};
-    b_memorys = {1: f_memory, 2: f_memory, 3: f_memory, 4: f_memory, 5: f_memory, 
-                    6: f_memory, 7: f_memory, 8: f_memory, 9: f_memory, 10: f_memory};
-    check_reset();
+    flag = confirm("試合記録を削除しますか？");
+
+    if ( flag == true ){
+        player_name = "先攻";
+        player.innerHTML = player_name;
+        player_turn = 1;
+        turn.innerHTML = player_turn;
+        a_memorys = {1: f_memory, 2: f_memory, 3: f_memory, 4: f_memory, 5: f_memory, 
+                        6: f_memory, 7: f_memory, 8: f_memory, 9: f_memory, 10: f_memory};
+        b_memorys = {1: f_memory, 2: f_memory, 3: f_memory, 4: f_memory, 5: f_memory, 
+                        6: f_memory, 7: f_memory, 8: f_memory, 9: f_memory, 10: f_memory};
+        check_reset();
+        counter_side_1.innerHTML = 6
+        counter_side_2.innerHTML = 6
+        alert("記録を削除しました");
+    }
+    pop_close();
 }
 
 function check_reset() {
@@ -210,6 +289,15 @@ function check_reset() {
     }
     addCount(0);
     reset_color(player_name);
+    pop_close();
+}
+
+function pullDown() {
+    if (nav.classList.contains("open-menu")) {
+        nav.classList.remove("open-menu")
+    } else {
+        nav.classList.add("open-menu")
+    }
 }
 
 window.addEventListener("load", ()=>{
@@ -230,8 +318,9 @@ window.addEventListener("load", ()=>{
     player = document.getElementById("player");
     turn_line = document.getElementById("turn-line");
     turn = document.getElementById("turn");
-    test1 = document.getElementById("test1");
-    test2 = document.getElementById("test2");
+    menu = document.getElementById("menu");
+    nav = document.getElementById("g-nav");
+    pop_table = document.getElementById("check-table-box");
     n_1 = 0;
     n_2 = 0;
     n_3 = 0;

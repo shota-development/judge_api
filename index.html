@@ -18,7 +18,18 @@
   <div class="sac-page wf-section">
     <div class="main-wrapper">
       <div class="first-box">
-        <h1 class="h1-txt">JUDGE INDICATOR</h1>
+        <div class="navbar w-nav">
+          <a class="brand w-nav-brand"><h1 class="h1-txt">JUDGE INDICATOR</h1></a>
+          <a class="brand w-nav-menu">
+            <div id="menu" class="openbtn" role="button" onclick="pullDown()"><span></span><span></span><span></span></div>
+          </a>
+          <nav id="g-nav">
+            <h2 class="menu_title">設定メニュー</h2>
+            <a href="#" class="menu_list" onclick="memory_clear()">記録をクリアする</a><br>
+            <a href="#" class="menu_list" onclick="check_memory()">記録を確認する</a><br>
+            <a href="#" class="menu_list" onclick="check_reset()">このターンの入力をクリアする</a>  
+          </nav>
+        </div>
       </div>
       <div class="second-box">
         <div class="side-count-wrapper">
@@ -31,10 +42,32 @@
             <div class="side-count-label second">後攻残りサイド</div>
           </div>
         </div>
+        <div class="check-table-wrapper">
+          <div id="check-table-box" class="check-table-box">
+            <table id="player_table" class="player_table">
+              <tr class="player_table_tr">
+                <th colspan="4" class="player_table_th">先攻</th>
+                <th></th>
+                <th colspan="4" class="player_table_th">後攻</th>
+              </tr>
+              <tr class="player_table_tr">
+                <td class="player_table_td">Eg</td>
+                <td class="player_table_td">St</td>
+                <td class="player_table_td">Esc</td>
+                <td class="player_table_td">St</td>
+                <td class="player_table_td">ターン</td>
+                <td class="player_table_td">Eg</td>
+                <td class="player_table_td">St</td>
+                <td class="player_table_td">Esc</td>
+                <td class="player_table_td">St</td>
+              </tr>
+            </table>
+          </div>
+        </div>
         <div class="turn-box">
           <h2 id="turn-line" class="h2-turn"><span id="player" class="player-sig">先攻</span> <span id="turn" class="turn-number">1</span>ターン</h2>
         </div>
-        <table cellspacing="10">
+        <table cellspacing="10" class="check_table">
           <tr>
             <td id="check_energy" class="once-check" onclick="getElementById('energy').click();">
               <input type="checkbox" id="energy" class="label-check" onclick="this.click();chenge_color(`energy`);">エネルギー</td>

@@ -7,7 +7,7 @@ let check_1, check_2, check_3, check_4;
 let a_memorys, b_memorys;
 let player_turn, player_name;
 let player, turn, turn_line, player_sig;
-let menu, nav, pop_table;
+let menu, nav, pop_table, page_main;
 let header = ["Eg", "St", "Esc", "St"]
 const f_memory = [false, false, false, false, 0, 0, 0, 0, 0, 0];
 
@@ -197,6 +197,7 @@ function addCount(num, sign){
 function check_memory() {
     var table = document.getElementById("player_table");
     turns = Object.keys(a_memorys).length;
+    // 行を追加
     for (var r=0; r<turns; r++) {
         var row = table.insertRow(-1);
         target_key = 1 + r;
@@ -233,6 +234,7 @@ function check_memory() {
             }
         }
     }
+    // ボタン追加
     var row = table.insertRow(-1);
     var td = document.createElement("td");
     td.classList.add("btn_td")
@@ -254,12 +256,12 @@ function check_memory() {
 function pop_close(flag) {
     if (pop_table.classList.contains("open-menu")) {
         pop_table.classList.remove("open-menu");
-    } else {
+        var table = document.getElementById("player_table");
+        for (r=table.rows.length-1; r>1; r--) {
+            table.deleteRow(r);
+        }
+    } else if (flag){
         pop_table.classList.add("open-menu");
-    }
-    var table = document.getElementById("player_table");
-    for (r=table.rows.length-1; r>1; r--) {
-        table.deleteRow(r);
     }
 }
 
@@ -276,8 +278,9 @@ function memory_clear() {
         b_memorys = {1: f_memory, 2: f_memory, 3: f_memory, 4: f_memory, 5: f_memory, 
                         6: f_memory, 7: f_memory, 8: f_memory, 9: f_memory, 10: f_memory};
         check_reset();
-        counter_side_1.innerHTML = 6
-        counter_side_2.innerHTML = 6
+        counter_side_1.innerHTML = 6;
+        counter_side_2.innerHTML = 6;
+        pop_close(false);
         alert("記録を削除しました");
     }
 }
@@ -288,20 +291,16 @@ function check_reset() {
     }
     addCount(0);
     reset_color(player_name);
-    if (pop_table.classList.contains("open-menu")) {
-        pop_table.classList.remove("open-menu");
-        var table = document.getElementById("player_table");
-        for (r=table.rows.length-1; r>1; r--) {
-            table.deleteRow(r);
-        }
-    }
+    pop_close(false);
 }
 
 function pullDown() {
     if (nav.classList.contains("open-menu")) {
         nav.classList.remove("open-menu")
+        page_main.classList.remove("open-menu")
     } else {
         nav.classList.add("open-menu")
+        page_main.classList.add("open-menu")
     }
 }
 
@@ -324,6 +323,7 @@ window.addEventListener("load", ()=>{
     turn_line = document.getElementById("turn-line");
     turn = document.getElementById("turn");
     menu = document.getElementById("menu");
+    page_main = document.getElementById("main_cover");
     nav = document.getElementById("g-nav");
     pop_table = document.getElementById("check-table-box");
     n_1 = 0;

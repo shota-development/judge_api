@@ -251,7 +251,7 @@ function check_memory() {
     }
 }
 
-function pop_close() {
+function pop_close(flag) {
     if (pop_table.classList.contains("open-menu")) {
         pop_table.classList.remove("open-menu");
     } else {
@@ -280,7 +280,6 @@ function memory_clear() {
         counter_side_2.innerHTML = 6
         alert("記録を削除しました");
     }
-    pop_close();
 }
 
 function check_reset() {

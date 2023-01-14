@@ -245,17 +245,17 @@ function check_memory() {
     td.appendChild(input);
     row.appendChild(td);
     if (pop_table.classList.contains("open-menu")) {
-        pop_table.classList.remove("open-menu")
+        pop_table.classList.remove("open-menu");
     } else {
-        pop_table.classList.add("open-menu")
+        pop_table.classList.add("open-menu");
     }
 }
 
 function pop_close() {
     if (pop_table.classList.contains("open-menu")) {
-        pop_table.classList.remove("open-menu")
+        pop_table.classList.remove("open-menu");
     } else {
-        pop_table.classList.add("open-menu")
+        pop_table.classList.add("open-menu");
     }
     var table = document.getElementById("player_table");
     for (r=table.rows.length-1; r>1; r--) {
@@ -289,7 +289,13 @@ function check_reset() {
     }
     addCount(0);
     reset_color(player_name);
-    pop_close();
+    if (pop_table.classList.contains("open-menu")) {
+        pop_table.classList.remove("open-menu");
+        var table = document.getElementById("player_table");
+        for (r=table.rows.length-1; r>1; r--) {
+            table.deleteRow(r);
+        }
+    }
 }
 
 function pullDown() {

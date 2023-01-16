@@ -68,8 +68,13 @@ function paging(value) {
     memory.push(n_2);
     memory.push(n_3);
     memory.push(n_4);
-    memory.push(n_5);
-    memory.push(n_6);
+    if (att_1[0].textContent == "先攻") {
+        memory.push(n_5);
+        memory.push(n_6);
+    } else if (att_1[0].textContent == "後攻") {
+        memory.push(n_6);
+        memory.push(n_5);
+    }
 
     if (player_name == "先攻") {
         a_memorys[player_turn] = memory;
@@ -111,8 +116,13 @@ function paging(value) {
     n_2 = n_memory[5];
     n_3 = n_memory[6];
     n_4 = n_memory[7];
-    n_5 = n_memory[8];
-    n_6 = n_memory[9];
+    if (att_1[0].textContent == "先攻") {
+        n_5 = n_memory[8];
+        n_6 = n_memory[9];
+    } else if (att_1[0].textContent == "後攻") {
+        n_5 = n_memory[9];
+        n_6 = n_memory[8];
+    }
     counter_1.innerHTML = n_1;
     counter_2.innerHTML = n_2;
     counter_3.innerHTML = n_3;
@@ -157,7 +167,7 @@ function addCount(num, sign){
         turn_side_num = n_5 + value;
         total_side_num = parseInt(counter_side_1.textContent) - value;
         if (total_side_num < 0) {
-            alert(att_1.textContent + "プレイヤーのサイドは0枚です。")
+            alert(att_1[0].textContent + "プレイヤーのサイドは0枚です。")
         } else if (total_side_num < 7) {
             if (!(turn_side_num < 0)) {
                 n_5 = turn_side_num;
@@ -319,6 +329,14 @@ function change_att() {
         player_color_4[0].style.backgroundColor = "#d11e1e";
         player_color_5[0].style.backgroundColor = "#3657be";
         player_color_6[0].style.backgroundColor = "#d11e1e";
+        tmp = counter_side_1.textContent;
+        counter_side_1.innerHTML = counter_side_2.textContent;
+        counter_side_2.innerHTML = tmp;
+        tmp = n_5;
+        n_5 = n_6;;
+        n_6 = tmp;
+        counter_side_3.innerHTML = n_5;
+        counter_side_4.innerHTML = n_6;
     } else if (att_1[0].textContent == "後攻") {
         att_1[0].innerHTML = "先攻";
         att_1[1].innerHTML = "先攻";
@@ -332,6 +350,14 @@ function change_att() {
         player_color_4[0].style.backgroundColor = "#3657be";
         player_color_5[0].style.backgroundColor = "#d11e1e";
         player_color_6[0].style.backgroundColor = "#3657be";
+        tmp = counter_side_1.textContent;
+        counter_side_1.innerHTML = counter_side_2.textContent;
+        counter_side_2.innerHTML = tmp;
+        tmp = n_5;
+        n_5 = n_6;;
+        n_6 = tmp;
+        counter_side_3.innerHTML = n_5;
+        counter_side_4.innerHTML = n_6;
     }
 
 }

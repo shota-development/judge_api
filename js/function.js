@@ -1,13 +1,12 @@
-//let counter_1, counter_2, counter_3, counter_4;
 let counter_1, counter_2, counter_3, counter_4;
 let counter_side_1, counter_side_2, counter_side_3, counter_side_4;
+let att_1, att_2, player_color_1, player_color_2, player_color_3, player_color_4;
 let n_1, n_2, n_3, n_4, n_5, n_6;
-let check_table, checks;
+let side_btn_1, side_btn_2, side_btn_3, side_btn_4;
 let check_1, check_2, check_3, check_4;
 let a_memorys, b_memorys;
-let player_turn, player_name;
-let player, turn, turn_line, player_sig;
-let menu, nav, pop_table, page_main;
+let player_turn, player_name, player, turn, turn_line, player_sig;
+let check_table, checks, menu, nav, pop_table, page_main;
 let header = ["Eg", "St", "Esc", "St"]
 const f_memory = [false, false, false, false, 0, 0, 0, 0, 0, 0];
 
@@ -158,19 +157,19 @@ function addCount(num, sign){
         turn_side_num = n_5 + value;
         total_side_num = parseInt(counter_side_1.textContent) - value;
         if (total_side_num < 0) {
-            alert("先攻プレイヤーのサイドは0枚です。")
+            alert(att_1.textContent + "プレイヤーのサイドは0枚です。")
         } else if (total_side_num < 7) {
             if (!(turn_side_num < 0)) {
                 n_5 = turn_side_num;
                 counter_side_1.innerHTML = total_side_num;
             }
-        }    
+        }
     }
     else if (num == 6) {
         turn_side_num = n_6 + value;
         total_side_num = parseInt(counter_side_2.textContent) - value;
         if (total_side_num < 0) {
-            alert("後攻プレイヤーのサイドは0枚です。")
+            alert(att_1.textContent + "プレイヤーのサイドは0枚です。")
         } else if (total_side_num < 7) {
             if (!(turn_side_num < 0)) {
                 n_6 = turn_side_num;
@@ -289,6 +288,8 @@ function check_reset() {
     for (let i = 0; i < checks.length; i++) {
         checks[i].checked = false;
     }
+    counter_side_1.innerHTML = parseInt(counter_side_1.textContent) + n_5;
+    counter_side_2.innerHTML = parseInt(counter_side_2.textContent) + n_6;
     addCount(0);
     reset_color(player_name);
     pop_close(false);
@@ -298,10 +299,38 @@ function pullDown() {
     if (nav.classList.contains("open-menu")) {
         nav.classList.remove("open-menu")
         page_main.classList.remove("open-menu")
+        pop_close(false)
     } else {
         nav.classList.add("open-menu")
         page_main.classList.add("open-menu")
     }
+}
+
+function change_att() {
+    if (att_1.textContent == "先攻") {
+        att_1.innerHTML = "後攻";
+        att_2.innerHTML = "先攻";
+        player_color_1[0].style.borderBottomColor = "#3657be";
+        player_color_1[0].style.color = "#3657be";
+        player_color_2[0].style.borderBottomColor = "#d11e1e";
+        player_color_2[0].style.color = "#d11e1e";
+        player_color_3[0].style.backgroundColor = "#3657be";
+        player_color_4[0].style.backgroundColor = "#d11e1e";
+        player_color_5[0].style.backgroundColor = "#3657be";
+        player_color_6[0].style.backgroundColor = "#d11e1e";
+    } else if (att_1.textContent == "後攻") {
+        att_1.innerHTML = "先攻";
+        att_2.innerHTML = "後攻";
+        player_color_1[0].style.borderBottomColor = "#d11e1e";
+        player_color_1[0].style.color = "#d11e1e";
+        player_color_2[0].style.borderBottomColor = "#3657be";
+        player_color_2[0].style.color = "#3657be";
+        player_color_3[0].style.backgroundColor = "#d11e1e";
+        player_color_4[0].style.backgroundColor = "#3657be";
+        player_color_5[0].style.backgroundColor = "#d11e1e";
+        player_color_6[0].style.backgroundColor = "#3657be";
+    }
+
 }
 
 window.addEventListener("load", ()=>{
@@ -314,6 +343,14 @@ window.addEventListener("load", ()=>{
     counter_side_2 = document.getElementById("counter-side-2");
     counter_side_3 = document.getElementById("counter-side-3");
     counter_side_4 = document.getElementById("counter-side-4");
+    att_1 = document.getElementById("att_1");
+    att_2 = document.getElementById("att_2");
+    player_color_1 = document.getElementsByClassName("side-count-label");
+    player_color_2 = document.getElementsByClassName("side-count-label second");
+    player_color_3 = document.getElementsByClassName("side-count-txt");
+    player_color_4 = document.getElementsByClassName("side-count-txt second");
+    player_color_5 = document.getElementsByClassName("side-count-number");
+    player_color_6 = document.getElementsByClassName("side-count-number second");
     check_1 = document.getElementById("check_energy");
     check_2 = document.getElementById("check_support");
     check_3 = document.getElementById("check_escape");
@@ -326,6 +363,10 @@ window.addEventListener("load", ()=>{
     page_main = document.getElementById("main_cover");
     nav = document.getElementById("g-nav");
     pop_table = document.getElementById("check-table-box");
+    side_btn_1 = document.getElementById("side_1_down");
+    side_btn_2 = document.getElementById("side_1_up");
+    side_btn_3 = document.getElementById("side_2_down");
+    side_btn_4 = document.getElementById("side_2_up");
     n_1 = 0;
     n_2 = 0;
     n_3 = 0;

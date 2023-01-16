@@ -184,7 +184,7 @@ input[type="checkbox"]:checked {
 }
 .openbtn{
   color: #e0e9ff;
-  /* position:fixed; */
+  position:absolute;
     z-index: 9999;/*ボタンを最前面に*/
   top:10px;
   right: 10px;

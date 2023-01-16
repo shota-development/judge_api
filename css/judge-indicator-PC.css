@@ -280,7 +280,7 @@ a {
   margin-top: 40%;
   margin-left: 5%;
 }
-.player_table_th {
+#player_table_th {
   font-size: 20px;
   padding: 2%;
 }

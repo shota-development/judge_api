@@ -169,7 +169,7 @@ function addCount(num, sign){
         turn_side_num = n_6 + value;
         total_side_num = parseInt(counter_side_2.textContent) - value;
         if (total_side_num < 0) {
-            alert(att_1.textContent + "プレイヤーのサイドは0枚です。")
+            alert(att_2.textContent + "プレイヤーのサイドは0枚です。")
         } else if (total_side_num < 7) {
             if (!(turn_side_num < 0)) {
                 n_6 = turn_side_num;
@@ -193,6 +193,23 @@ function addCount(num, sign){
     counter_side_4.innerHTML = n_6;
 }
 
+function check_memory_utils(row, memory) {
+    for (c=0; c<header.length; c++) {
+        var td = document.createElement("td");
+        td.classList.add("player_table_td")
+        row.appendChild(td);
+        if (memory[target_key][c] === undefined) {
+            td.innerHTML = "";
+        } else {
+            if (memory[target_key][c]) {
+                td.innerHTML = "〇";
+            } else {
+                td.innerHTML = "-";
+            }
+        }
+    }
+    return row
+}
 function check_memory() {
     var table = document.getElementById("player_table");
     turns = Object.keys(a_memorys).length;
@@ -200,37 +217,19 @@ function check_memory() {
     for (var r=0; r<turns; r++) {
         var row = table.insertRow(-1);
         target_key = 1 + r;
-        for (c=0; c<header.length; c++) {
-            var td = document.createElement("td");
-            td.classList.add("player_table_td")
-            row.appendChild(td);
-            if (a_memorys[target_key][c] === undefined) {
-                td.innerHTML = "";
-            } else {
-                if (a_memorys[target_key][c]) {
-                    td.innerHTML = "〇";
-                } else {
-                    td.innerHTML = "-";
-                }
-            }
+        if (att_1[0].textContent == "先攻") {
+            check_memory_utils(row, a_memorys);
+        } else if (att_1[0].textContent == "後攻") {
+            check_memory_utils(row, b_memorys);
         }
         var td = document.createElement("td");
         td.classList.add("player_table_td")
         row.appendChild(td);
         td.innerHTML = target_key;
-        for (c=0; c<header.length; c++) {
-            var td = document.createElement("td");
-            td.classList.add("player_table_td")
-            row.appendChild(td);
-            if (b_memorys[target_key][c] === undefined) {
-                td.innerHTML = "";
-            } else {
-                if (b_memorys[target_key][c]) {
-                    td.innerHTML = "〇";
-                } else {
-                    td.innerHTML = "-";
-                }
-            }
+        if (att_1[0].textContent == "先攻") {
+            check_memory_utils(row, b_memorys);
+        } else if (att_1[0].textContent == "後攻") {
+            check_memory_utils(row, a_memorys);
         }
     }
     // ボタン追加
@@ -307,9 +306,11 @@ function pullDown() {
 }
 
 function change_att() {
-    if (att_1.textContent == "先攻") {
-        att_1.innerHTML = "後攻";
-        att_2.innerHTML = "先攻";
+    if (att_1[0].textContent == "先攻") {
+        att_1[0].innerHTML = "後攻";
+        att_1[1].innerHTML = "後攻";
+        att_2[0].innerHTML = "先攻";
+        att_2[1].innerHTML = "先攻";
         player_color_1[0].style.borderBottomColor = "#3657be";
         player_color_1[0].style.color = "#3657be";
         player_color_2[0].style.borderBottomColor = "#d11e1e";
@@ -318,9 +319,11 @@ function change_att() {
         player_color_4[0].style.backgroundColor = "#d11e1e";
         player_color_5[0].style.backgroundColor = "#3657be";
         player_color_6[0].style.backgroundColor = "#d11e1e";
-    } else if (att_1.textContent == "後攻") {
-        att_1.innerHTML = "先攻";
-        att_2.innerHTML = "後攻";
+    } else if (att_1[0].textContent == "後攻") {
+        att_1[0].innerHTML = "先攻";
+        att_1[1].innerHTML = "先攻";
+        att_2[0].innerHTML = "後攻";
+        att_2[1].innerHTML = "後攻";
         player_color_1[0].style.borderBottomColor = "#d11e1e";
         player_color_1[0].style.color = "#d11e1e";
         player_color_2[0].style.borderBottomColor = "#3657be";
@@ -343,8 +346,8 @@ window.addEventListener("load", ()=>{
     counter_side_2 = document.getElementById("counter-side-2");
     counter_side_3 = document.getElementById("counter-side-3");
     counter_side_4 = document.getElementById("counter-side-4");
-    att_1 = document.getElementById("att_1");
-    att_2 = document.getElementById("att_2");
+    att_1 = document.getElementsByClassName("att_1");
+    att_2 = document.getElementsByClassName("att_2");
     player_color_1 = document.getElementsByClassName("side-count-label");
     player_color_2 = document.getElementsByClassName("side-count-label second");
     player_color_3 = document.getElementsByClassName("side-count-txt");

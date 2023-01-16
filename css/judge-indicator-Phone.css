@@ -64,20 +64,9 @@
       width: 50px;
       height:50px;
   }
-  .openbtn span{
-    position: fixed;
-  }
-  .openbtn span:nth-of-type(1) {
-    top:15px;
-    position: fixed;
-  }
-  .openbtn span:nth-of-type(2) {
-    top:23px;
-    position: fixed;
-  }
-  .openbtn span:nth-of-type(3) {
-    top:31px;
-    position: fixed;
+  
+  #g-nav.open-menu {
+    width: 320px;
   }
 
   .h2-turn {

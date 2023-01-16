@@ -54,6 +54,19 @@
   .h1-txt {
     font-size: 20px;
   }
+  .openbtn{
+    color: #e0e9ff;
+    position: fixed;
+      z-index: 9999;/*ボタンを最前面に*/
+    top:10px;
+    right: 10px;
+    cursor: pointer;
+      width: 50px;
+      height:50px;
+  }
+  .openbtn span{
+    position: fixed;
+  }
 
   .h2-turn {
     display: -webkit-box;
@@ -125,9 +138,6 @@
     font-size: 28px;
   }
 
-  #g-nav.open-menu {
-    width: 80vw;
-  }
   .menu_list {
     color:rgb(84, 153, 233);
     font-size: 20px;

@@ -231,6 +231,7 @@ a {
 }
 .menu_title {
   text-align: center;
+  white-space: nowrap;
 }
 .menu_list {
   color:rgb(84, 153, 233);

@@ -122,7 +122,8 @@ input[type="checkbox"]:checked {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -139,7 +140,7 @@ input[type="checkbox"]:checked {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -356,7 +357,7 @@ a {
 
 .check_table {
   font-size: min(50vw,16px);
-  width: 80vw;
+  width: 85vw;
   max-width: 800px;
   height: 30vh;
   max-height: 180px;

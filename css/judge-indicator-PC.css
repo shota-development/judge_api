@@ -2,7 +2,6 @@
 input[type="checkbox"] {
   width: min(20vw,14px);
   height: min(20vw,14px);
-  
   margin-right: 10px;
 }
 
@@ -356,11 +355,7 @@ a {
 }
 
 .check_table {
-  font-size: min(50vw,20px);
-  width: 800px;
-  max-width: 80vw;
-  height: 150px;
-  max-height: 35vw;
+  font-size: min(50vw,16px);
   margin-left: auto;
   margin-right: auto;
   border-collapse: separate;

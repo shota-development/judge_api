@@ -1,13 +1,13 @@
 /* タグ単位 */
 input[type="checkbox"] {
-  width: min(20vw,14px);
-  height: min(20vw,14px);
+  width: min(20vw,24px);
+  height: min(20vw,24px);
   margin-right: 10px;
 }
 
 input[type="checkbox"]:checked {
-  width: min(20vw,14px);
-  height: min(20vw,14px);
+  width: min(20vw,24px);
+  height: min(20vw,24px);
   margin-right: 10px;
 }
 

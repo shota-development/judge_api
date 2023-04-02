@@ -179,7 +179,7 @@ function addCount(num, sign){
         turn_side_num = n_6 + value;
         total_side_num = parseInt(counter_side_2.textContent) - value;
         if (total_side_num < 0) {
-            alert(att_2.textContent + "プレイヤーのサイドは0枚です。")
+            alert(att_2[0].textContent + "プレイヤーのサイドは0枚です。")
         } else if (total_side_num < 7) {
             if (!(turn_side_num < 0)) {
                 n_6 = turn_side_num;

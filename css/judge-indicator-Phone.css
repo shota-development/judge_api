@@ -67,7 +67,7 @@
   .help_text {
     color: #e0e9ff;
     position: relative;
-    /* z-index: 9999; */
+    z-index: 9999;
     /*ボタンを最前面に*/
     top: 12px;
     left: 15vw;

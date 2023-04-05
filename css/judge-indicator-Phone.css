@@ -69,6 +69,23 @@
     width: 320px;
   }
 
+  .help-table-box {
+    background: rgb(193, 200, 201);
+    position: absolute;
+    z-index: 5000;
+    top: 50px;
+    right: 0;
+    overflow-x: hidden;
+    width: 0;
+    height: 80vh;
+    transition: .5s;
+  }
+  .help-table-box.open-menu {
+    width: 80vw;
+    max-width: 460px;
+  }
+  
+
   .h2-turn {
     display: -webkit-box;
     display: -webkit-flex;

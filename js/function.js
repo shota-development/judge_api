@@ -6,7 +6,7 @@ let side_btn_1, side_btn_2, side_btn_3, side_btn_4;
 let check_1, check_2, check_3, check_4;
 let a_memorys, b_memorys;
 let player_turn, player_name, player, turn, turn_line, player_sig;
-let check_table, checks, menu, nav, pop_table, page_main;
+let check_table, checks, menu, nav, pop_table, pop_help, page_main;
 let header = ["Eg", "St", "Esc", "St"]
 const f_memory = [false, false, false, false, 0, 0, 0, 0, 0, 0];
 
@@ -202,6 +202,13 @@ function addCount(num, sign){
     counter_side_3.innerHTML = n_5;
     counter_side_4.innerHTML = n_6;
 }
+function active_help() {
+    if (pop_help.classList.contains("open-menu")) {
+        pop_help.classList.remove("open-menu");
+    } else {
+        pop_help.classList.add("open-menu");
+    }
+}
 
 function check_memory_utils(row, memory) {
     for (c=0; c<header.length; c++) {
@@ -392,6 +399,7 @@ window.addEventListener("load", ()=>{
     page_main = document.getElementById("main_cover");
     nav = document.getElementById("g-nav");
     pop_table = document.getElementById("check-table-box");
+    pop_help = document.getElementById("help-table-box");
     side_btn_1 = document.getElementById("side_1_down");
     side_btn_2 = document.getElementById("side_1_up");
     side_btn_3 = document.getElementById("side_2_down");

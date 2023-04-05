@@ -21,6 +21,7 @@
       <div class="first-box">
         <div class="navbar w-nav">
           <a class="brand w-nav-brand"><h1 class="h1-txt">JUDGE INDICATOR</h1></a>
+          <a href="#" class="help_text" onclick="active_help(true)">使い方</a>
           <a class="brand w-nav-menu">
             <div id="menu" class="openbtn" role="button" onclick="pullDown()"><span></span><span></span><span></span></div>
           </a>
@@ -32,6 +33,38 @@
             <a href="#" class="menu_list" onclick="change_att()">先後を入れ替える</a><br>
             <input type="button" class="pop_btn" onclick="pullDown()" value="閉じる">
           </nav>
+          <div class="help-table-wrapper">
+            <div id="help-table-box" class="help-table-box">
+              <h3>JUDGE INDICATORの使い方</h3><br>
+              <ul>
+                <label class="help_list">制約チェック</label>
+                <li class="help_list">1ターンに1度しかできないことをチェックできます。</li>
+              </ul>
+              <ul>
+                <label class="help_list">特性のカウント</label>
+                <li class="help_list">特性A,B,Cの横の+-ボタンで特性の使用回数をカウントできます。</li>
+              </ul>
+              <ul>
+                <label class="help_list">サイドのカウント</label>
+                <li class="help_list">サイド取得欄の+-ボタンでサイドの取得数をカウントできます。</li>
+                <li class="help_list">ページ上部の残りサイド数と連動します。</li>
+                <li class="help_list">残りサイドが0枚の時、サイドを取得しようとするとアラートが出ます。</li>
+                <li class="help_list">残りサイド数は6枚以上になりません。</li>
+              </ul>
+              <ul>
+                <label class="help_list">番の移行</label>
+                <li class="help_list">ページ下部の次の番ボタンで次のプレイヤーの番になります。</li>
+                <li class="help_list">ページ下部の前の番ボタンで前のプレイヤーの番になります。</li>
+              </ul>
+              <ul>
+                <label class="help_list">便利機能メニュー</label>
+                <li class="help_list">ページ右上の三本線をタップするとメニューが開きます。</li>
+                <li class="help_list">記録をクリアする：その試合の記録がリセットされ、先攻1ターン目へ遷移します。</li>
+                <li class="help_list">記録を確認する：その試合の履歴が確認できます。</li>
+                <li class="help_list">このターンの入力をクリアする：そのターンの記録がリセットされます。</li>
+                <li class="help_list">先後を入れ替える：先攻と後攻の位置が左右反転します。</li>
+              </ul>
+            </div>
         </div>
       </div>
       <div class="second-box">

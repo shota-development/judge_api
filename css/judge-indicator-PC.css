@@ -178,6 +178,22 @@ input[type="checkbox"]:checked {
   color: #fff;
   font-size: 16px;
 }
+.help_text {
+  color: #e0e9ff;
+  position: relative;
+  /* z-index: 9999; */
+  /*ボタンを最前面に*/
+  top: 24px;
+  left: 280px;
+  font-size: 20px;
+  cursor: pointer;
+    width: 50px;
+    height:50px;
+}
+.help_list {
+  font-size: 16px;
+  text-align: left;
+}
 
 .w-nav-menu {
   position: relative;
@@ -276,11 +292,28 @@ a {
 .check-table-box.open-menu {
   display: flex;
 }
+.help-table-box {
+  background: rgb(193, 200, 201);
+  position: absolute;
+  z-index: 5000;
+  top: 50px;
+  right: 0;
+  overflow-x: hidden;
+  width: 0;
+  height: 70vh;
+  transition: .5s;
+}
+.help-table-box.open-menu {
+  width: 80vw;
+  max-width: 780px;
+}
+
 .player_table {
   position: absolute;
   background: darksalmon;
   margin-top: 40%;
   margin-left: 5%;
+  border-radius: 6px;
 }
 #player_table_th {
   font-size: 20px;

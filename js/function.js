@@ -205,8 +205,10 @@ function addCount(num, sign){
 function active_help() {
     if (pop_help.classList.contains("open-menu")) {
         pop_help.classList.remove("open-menu");
+        page_main.classList.remove("open-menu")
     } else {
         pop_help.classList.add("open-menu");
+        page_main.classList.add("open-menu")
     }
 }
 
@@ -311,7 +313,7 @@ function check_reset() {
     pop_close(false);
 }
 
-function pullDown() {
+function pullDown(flag) {
     if (nav.classList.contains("open-menu")) {
         nav.classList.remove("open-menu")
         page_main.classList.remove("open-menu")

@@ -291,9 +291,11 @@ function memory_clear() {
         player_turn = 1;
         turn.innerHTML = player_turn;
         a_memorys = {1: f_memory, 2: f_memory, 3: f_memory, 4: f_memory, 5: f_memory, 
-                        6: f_memory, 7: f_memory, 8: f_memory, 9: f_memory, 10: f_memory};
+                     6: f_memory, 7: f_memory, 8: f_memory, 9: f_memory, 10: f_memory,
+                     11: f_memory, 12: f_memory, 13: f_memory, 14: f_memory, 15: f_memory};
         b_memorys = {1: f_memory, 2: f_memory, 3: f_memory, 4: f_memory, 5: f_memory, 
-                        6: f_memory, 7: f_memory, 8: f_memory, 9: f_memory, 10: f_memory};
+                     6: f_memory, 7: f_memory, 8: f_memory, 9: f_memory, 10: f_memory,
+                     11: f_memory, 12: f_memory, 13: f_memory, 14: f_memory, 15: f_memory};
         check_reset();
         counter_side_1.innerHTML = 6;
         counter_side_2.innerHTML = 6;
@@ -419,7 +421,9 @@ window.addEventListener("load", ()=>{
     check_3.style.background = "#0a8b2a";
     check_4.style.background = "#0a8b2a";
     a_memorys = {1: f_memory, 2: f_memory, 3: f_memory, 4: f_memory, 5: f_memory, 
-                    6: f_memory, 7: f_memory, 8: f_memory, 9: f_memory, 10: f_memory};
+                 6: f_memory, 7: f_memory, 8: f_memory, 9: f_memory, 10: f_memory,
+                 11: f_memory, 12: f_memory, 13: f_memory, 14: f_memory, 15: f_memory};
     b_memorys = {1: f_memory, 2: f_memory, 3: f_memory, 4: f_memory, 5: f_memory, 
-                    6: f_memory, 7: f_memory, 8: f_memory, 9: f_memory, 10: f_memory};
+                 6: f_memory, 7: f_memory, 8: f_memory, 9: f_memory, 10: f_memory,
+                 11: f_memory, 12: f_memory, 13: f_memory, 14: f_memory, 15: f_memory};
 });
